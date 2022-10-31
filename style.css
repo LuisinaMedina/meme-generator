@@ -1,0 +1,367 @@
+:root body.light-theme {
+	--color-header: #e0e0e0;
+	--color-background: #eeeeee;
+	--color-panel: #fafafa;
+
+	--color-boton-default: #e0e0e0;
+	--color-boton-default-hover: #bdbdbd;
+
+	--color-text: #424242;
+	--color-title-panel: rgb(33 33 33 / 80%);
+	--color-title-control: rgb(33 33 33 / 70%);
+}
+
+:root body.dark-theme {
+	--color-header: #191e2b;
+	--color-background: #30343f;
+	--color-panel: #252935;
+
+	--color-boton-default: #393e49;
+	--color-boton-default-hover: #4e5565;
+
+	--color-text: #ffffff;
+}
+
+* {
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+}
+
+html,
+body {
+	height: 100vh;
+	margin: 0;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+header {
+	background-color: var(--color-header);
+}
+
+.app-title {
+	text-align: center;
+	font-size: 35px;
+	margin: 10px;
+	color: var(--color-text);
+	font-weight: 600;
+}
+
+.panel-buttons {
+	display: flex;
+	justify-content: center;
+}
+
+.button {
+	display: flex;
+	align-items: center;
+	padding: 2px 15px;
+	font-size: 20px;
+	height: 66px;
+	/* margin: 10px; */
+	margin-bottom: 10px;
+	cursor: pointer;
+	background-color: var(--color-header);
+	border: none;
+	color: var(--color-text);
+}
+
+.button:hover {
+	background-color: var(--color-boton-default-hover);
+	border-radius: 10px;
+	padding: 5px 5px;
+}
+
+.button-one::before {
+	content: "\f1c5";
+	font-family: "Font Awesome 5 free";
+	margin-right: 5px;
+}
+
+.button-two::before {
+	content: "\41";
+	font-family: "Font Awesome 5 free";
+	margin-right: 5px;
+}
+
+.button-three::before {
+	content: "\f0eb";
+	font-family: "Font Awesome 5 free";
+	margin-right: 5px;
+}
+
+.button-four::before {
+	content: "\f0eb";
+	font-family: "Font Awesome 5 free";
+	margin-right: 5px;
+}
+
+.editor-container {
+	display: flex;
+	height: 100vh;
+}
+
+.meme-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--color-background);
+	flex-grow: 1;
+}
+
+.canvas-meme {
+	height: 100%;
+	width: 50%;
+	background-color: black;
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+}
+
+.text-meme {
+	background-color: #ffffff;
+	text-align: center;
+	padding: 18px 18px;
+	font-size: 40px;
+	font-weight: 700;
+	margin: 0;
+}
+
+.transparent {
+	background-color: transparent;
+}
+
+#image-meme {
+	flex-grow: 1;
+	background-size: cover;
+}
+
+#download-meme-button {
+	background-color: #2e7d32;
+	color: #ffffff;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	font-size: 12px;
+	position: relative;
+}
+
+#download-meme-button::before {
+	content: "\f358";
+	font-family: "Font Awesome 5 free";
+	margin-right: 5px;
+}
+
+.panel {
+	width: 400px;
+	height: 100%;
+	background-color: var(--color-panel);
+	padding: 30px 15px;
+	overflow: auto;
+	position: fixed;
+	top: 0;
+	right: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.panel-close-button {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	border-radius: 3px;
+	cursor: pointer;
+	background-color: transparent;
+	color: var(--color-text);
+	border: 0;
+	font-size: 20px;
+}
+
+.panel-title {
+	text-align: center;
+	color: var(--color-text);
+	margin-top: 0;
+	margin-bottom: 30px;
+}
+
+.panel-control {
+	margin-bottom: 30px;
+	font-size: 20px;
+}
+
+.panel-control-title {
+	color: var(--color-text);
+	margin-bottom: 10px;
+}
+
+.panel-control-input {
+	width: 100%;
+	height: 38px;
+	background-color: var(--color-background);
+	border-radius: 5px;
+	padding: 5px 10px;
+	margin-bottom: 5px;
+	border: none;
+	color: var(--color-text);
+	font-size: 20px;
+}
+
+.panel-control-columns {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.panel-control-color {
+	background-color: var(--color-background);
+	border-radius: 5px;
+	padding: 5px 10px;
+	margin-bottom: 5px;
+	border: none;
+	color: var(--color-text);
+	margin-right: 10px;
+}
+
+.panel-control-slider {
+	margin-top: 15px;
+}
+
+label {
+	display: block;
+	color: var(--color-text);
+}
+
+input[type='range'] {
+	width: 100%;
+	background-color: #9e9e9e;
+	border-radius: 10px;
+	margin-top: 10px;
+	appearance: none;
+	height: 8px;
+	color: var(--color-text);
+}
+
+.button-default {
+	background-color: var(--color-boton-default);
+	color: var(--color-text);
+	margin-top: 20px;
+	margin-bottom: 30px;
+	height: 50px;
+	border-radius: 5px;
+}
+
+/* .hidden {
+	display: none;
+} */
+
+.panel-control-checkbox {
+	display: flex;
+	margin-top: 10px;
+	align-items: center;
+}
+
+input[type='checkbox'] {
+	margin: 0 8px 0 0;
+}
+
+.flex-container {
+	display: flex;
+	align-items: center;
+}
+
+.button-alignment {
+	display: flex;
+}
+
+.buttons {
+	margin: 10px;
+	width: 40px;
+	height: 35px;
+	color: var(--color-text);
+	border: 0;
+	margin-bottom: 15px;
+}
+
+.panel-control-column {
+	width: calc(50% - 5px);
+}
+
+.buttons-container {
+	display: flex;
+	gap: 20px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+	.app-title {
+		font-size: 25px;
+	}
+	.button {
+		font-size: 14px;
+	}
+	.panel {
+		width: 100%;
+	}
+
+	.meme-container {
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	.canvas-meme {
+		height: 70%;
+		width: 90%;
+		margin-top: 40px;
+		margin-bottom: 10px;
+	}
+
+	.text-meme {
+		font-size: 20px;
+		padding: 10px 10px;
+	}
+
+	#download-meme-button {
+		font-size: 10px;
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+	.app-title {
+		font-size: 30px;
+	}
+	.button {
+		font-size: 18px;
+	}
+	.panel {
+		width: 100%;
+	}
+
+	.meme-container {
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	.canvas-meme {
+		height: 80%;
+		width: 60%;
+		margin-top: 40px;
+		margin-bottom: 10px;
+		flex-wrap: nowrap;
+	}
+
+	.text-meme {
+		font-size: 25px;
+		padding: 10px 10px;
+	}
+
+	#download-meme-button {
+		font-size: 10px;
+	}
+}
